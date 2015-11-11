@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+
+require_relative '../lib/tenant_spitter/cli'
+
+begin
+  cli = TenantSpitter::CLI.new
+  cli.parse
+  cli.run
+rescue => e
+  puts e.message
+  puts e.backtrace.join("\n")
+end
